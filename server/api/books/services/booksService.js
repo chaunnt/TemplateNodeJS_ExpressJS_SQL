@@ -1,8 +1,7 @@
 const DBCon = require('../../../config/database').DB;
 
-const tableName = 'books';
+const tableName = 'Books';
 async function findAll(){
-  console.log("findAll");
   let books = await DBCon(tableName).select().limit(20);
   return books;
 }
