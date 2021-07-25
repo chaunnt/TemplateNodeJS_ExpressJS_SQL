@@ -19,10 +19,10 @@ paths:
       parameters:
         # query params:
         - in: query
-          name: rowsPerPage
+          name: limit
           type: integer
         - in: query
-          name: currentPage
+          name: skip
           type: integer
         - in: query
           name: searchText

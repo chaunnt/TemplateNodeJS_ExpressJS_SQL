@@ -10,9 +10,9 @@ chai.should();
 chai.use(chaiHttp);
 chai.use(chaiHttp);
 
-
 const app = require('../app');
-describe(`Tests HKD`, function() {
+
+describe(`Tests Books`, function() {
   before(done => {
     new Promise(async function(resolve, reject) {
       //TODO do pre process
@@ -21,26 +21,23 @@ describe(`Tests HKD`, function() {
   });
 
   //Sample
-  it('Get list', done => {
-    // const body = {
-    //   "filter": {},
-    //   "skip": 0,
-    //   "limit": 20,
-    //   "order": {}
-    // };
-    // chai
-    //   .request(`0.0.0.0:${process.env.PORT}`)
-    //   .post(`api/feedbacks/feedback-cbt`)
-    //   .set({ Authorization: `Bearer ${token}` })
-    //   .send(body)
-    //   .end((err, res) => {
-    //     if ( err ) {
-    //       console.error(err);
-    //     }
-    //     checkResponseStatus(res, 200);
-    //     idTestItem = res.body.data.resultData[0]._id;
-    //     done();
-    //   });
-      done();
+  it('Get list books', done => {
+    const token = "token";
+    const params = {
+      "searchText": "",
+      "skip": 0,
+      "limit": 20
+    };
+    chai
+      .request(`0.0.0.0:${process.env.PORT}`)
+      .get(`/api/books/books?limit=${params.limit}&skip=${params.skip}&searchText=${params.searchText}`)
+      .set({ Authorization: `Bearer ${token}` })
+      .end((err, res) => {
+        if ( err ) {
+          console.error(err);
+        }
+        checkResponseStatus(res, 200);
+        done();
+      });
   });
 });

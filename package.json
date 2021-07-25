@@ -36,13 +36,9 @@
     "morgan": "^1.9.1",
     "mysql": "^2.18.1",
     "node-cron": "^2.0.3",
-    "node-geocoder": "^3.27.0",
-    "nodemailer": "^6.4.10",
     "nodemon": "^2.0.2",
-    "oracledb": "^4.2.0",
     "path": "^0.12.7",
     "prettier": "^1.19.1",
-    "redis": "^3.0.2",
     "should": "^13.2.3",
     "sinon": "^9.0.0",
     "supertest": "^4.0.2",
@@ -65,18 +61,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "lint": "eslint .",
-    "test": "mocha test/index.js --timeout 15000 --exit",
-    "efr": "eslint-find-rules --unused .eslintrc.js --no-error",
-    "debug": "DEBUG=app node app.js",
-    "docker:start": "docker-compose -f docker-compose-dev.yml up -d --build",
-    "docker:logs": "docker logs -f api-local-container",
-    "docker:stop": "docker stop api-local-container",
-    "docker": "npm run docker:start && npm run docker:logs",
-    "syncdb": "node src/utils/syncDb.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/trunghm/learning-nodejs-express-api.git"
+    "test": "mocha test/index.js --timeout 5000 --exit"
   },
   "keywords": [
     "nodejs",
@@ -84,12 +69,12 @@
     "API",
     "expressJS"
   ],
-  "author": "Trung Huynh",
+  "author": "ChauNNT",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trunghm/learning-nodejs-express-api/issues"
+    "url": "https://github.com/chaunnt/TemplateNodeJS_ExpressJS_SQL"
   },
-  "homepage": "https://github.com/trunghm/learning-nodejs-express-api#readme",
+  "homepage": "https://github.com/chaunnt/TemplateNodeJS_ExpressJS_SQL",
   "nodemonConfig": {
     "restartable": "rs",
     "ignore": [
