@@ -1,0 +1,122 @@
+{
+  "name": "learning-nodejs-express-api",
+  "version": "1.0.0",
+  "description": "Node JS API with Express template",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^3.4.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chalk": "^3.0.0",
+    "child_process": "^1.0.2",
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.0.0",
+    "cryptr": "^6.0.2",
+    "deep-diff": "^1.0.2",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "exceljs": "^4.2.1",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
+    "express-jwt": "^5.3.1",
+    "fs": "^0.0.1-security",
+    "handlebars": "^4.7.6",
+    "jquery": "^3.4.1",
+    "jsonwebtoken": "^8.5.1",
+    "knex": "^0.21.12",
+    "lodash": "^4.17.15",
+    "md5": "^2.3.0",
+    "method-override": "^3.0.0",
+    "mocha": "^7.1.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1",
+    "mysql": "^2.18.1",
+    "node-cron": "^2.0.3",
+    "node-geocoder": "^3.27.0",
+    "nodemailer": "^6.4.10",
+    "nodemon": "^2.0.2",
+    "oracledb": "^4.2.0",
+    "path": "^0.12.7",
+    "prettier": "^1.19.1",
+    "redis": "^3.0.2",
+    "should": "^13.2.3",
+    "sinon": "^9.0.0",
+    "supertest": "^4.0.2",
+    "swagger-jsdoc": "^4.0.0",
+    "swagger-ui-express": "^4.1.4"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-find-rules": "^3.4.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-mocha": "^6.3.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "expect": "^25.1.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^10.5.4"
+  },
+  "scripts": {
+    "start": "nodemon app.js",
+    "lint": "eslint .",
+    "test": "mocha test/index.js --timeout 15000 --exit",
+    "efr": "eslint-find-rules --unused .eslintrc.js --no-error",
+    "debug": "DEBUG=app node app.js",
+    "docker:start": "docker-compose -f docker-compose-dev.yml up -d --build",
+    "docker:logs": "docker logs -f api-local-container",
+    "docker:stop": "docker stop api-local-container",
+    "docker": "npm run docker:start && npm run docker:logs",
+    "syncdb": "node src/utils/syncDb.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trunghm/learning-nodejs-express-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "restful",
+    "API",
+    "expressJS"
+  ],
+  "author": "Trung Huynh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/trunghm/learning-nodejs-express-api/issues"
+  },
+  "homepage": "https://github.com/trunghm/learning-nodejs-express-api#readme",
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    },
+    "ext": "js,json"
+  },
+  "engines": {
+    "node": ">=10.15.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  }
+}

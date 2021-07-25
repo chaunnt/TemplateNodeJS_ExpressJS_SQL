@@ -1,0 +1,74 @@
+definitions:
+  Book:
+    type: object
+    properties:
+      id:
+        type: integer
+        example: 12
+      bookName:
+        type: string
+        example: NodeJS Training
+      
+paths:
+  /books/books:
+    get:
+      security:
+        - Bearer: []
+      summary: Get all books
+      tags: [Book]
+      parameters:
+        # query params:
+        - in: query
+          name: rowsPerPage
+          type: integer
+        - in: query
+          name: currentPage
+          type: integer
+        - in: query
+          name: searchText
+          type: string
+      responses:
+        '200':
+          description: Book list
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                example: 200
+              message:
+                type: string
+                example: success
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Book'
+              totalData:
+                type: integer
+                example: 100
+  /books/book/{id}:
+    get:
+      security:
+        - Bearer: []
+      summary: Get book detail
+      tags: [Book]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: integer
+          example: 6
+      responses:
+        '200':
+          description: Get book sucessfully
+          schema:
+            type: object
+            properties:
+              code:
+                type: integer
+                example: 200
+              message:
+                type: string
+                example: success
+              data:
+                $ref: '#/definitions/Book'
