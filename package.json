@@ -82,10 +82,6 @@
       "node_modules/**/node_modules"
     ],
     "delay": "2500",
-    "env": {
-      "NODE_ENV": "development",
-      "PORT": 4000
-    },
     "ext": "js,json"
   },
   "engines": {
